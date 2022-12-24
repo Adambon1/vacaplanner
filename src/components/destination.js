@@ -1,7 +1,11 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Destination(){
+
+    const notify = () => toast("Destination Added/Removed");
 
     const [destination, setDestination] = useState([]);
     const [errorMessage, setErrorMessage] = useState("")
@@ -69,7 +73,8 @@ function Destination(){
         <div>
             <form onSubmit={addItem}>
                 <input name="title"></input>
-                <button type="submit"> Add </button>
+                <button type="submit" onClick={notify}> Add </button>
+                <ToastContainer/>
             </form>
         </div>
     )
